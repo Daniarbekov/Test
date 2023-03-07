@@ -1,0 +1,21 @@
+{% load static %}
+{% load menu_items %}
+{% url 'index' as home %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body style="background-color: aliceblue">
+    <div class="container">
+        <h1 align="center">Page {% if request.path == home %}Home{%else%}{{page}}{%endif%} </h1>
+        <div class="sidenav">
+        <a href="{{home}}" class="{% if request.path == home %} current_item {% endif %}" >Home</a>
+            {% draw_menu 'main' %}
+        </div>
+    </div>
+
+</body>
+</html>

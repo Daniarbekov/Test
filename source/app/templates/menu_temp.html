@@ -1,0 +1,10 @@
+{% load menu_items %}
+    <button class="dropdown-btn">{{menu_items.name}}
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-container">
+        {% for items in menu_items.get_children %}
+            <a  class="{% if current_url == items.get_url %}active_item{% endif %}"
+            href="{{items.get_url}}">{{items.name}}</a>
+            {% endfor %}
+    </div>
